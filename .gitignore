@@ -1,18 +1,26 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# Secrets and credentials — never commit these
+*.pem
+*.key
+*.p12
+*.pfx
+*.env
+.env.*
+!.env.example
 
-# Other files and folders
-.settings/
+# Terraform state and variable files (may contain secrets)
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform/
+.terraform.lock.hcl
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# OS noise
+.DS_Store
+Thumbs.db
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Editor directories
+.idea/
+.vscode/
+*.swp
+*.swo
