@@ -1,0 +1,31 @@
+name: Security Checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+jobs:
+  secrets:
+    name: Secret Scan - Gitleaks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gitleaks/gitleaks-action@v2
+
+  trivy:
+    name: Vulnerability and IaC Scan - Trivy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aquasecurity/trivy-action@0.35.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          exit-code: 1
+          severity: CRITICAL,HIGH
