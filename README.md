@@ -6,7 +6,7 @@ A template repository for bootstrapping secure GitHub projects. Copy these files
 
 | File | Purpose |
 |------|---------|
-| `.github/workflows/security.yml` | CI pipeline: secret scanning (Gitleaks) + vulnerability/IaC scanning (Trivy) on every push and PR |
+| `.github/workflows/security.yml` | CI pipeline: secret scanning (Gitleaks) + vulnerability/IaC scanning (Trivy); triggers on push, PR, and manual dispatch; Trivy findings uploaded to the GitHub Security tab; stale PR runs cancelled automatically |
 | `.github/dependabot.yml` | Weekly automated dependency updates for GitHub Actions, Terraform, and Docker |
 | `.gitleaks.toml` | Gitleaks configuration; add allowlist entries for test fixtures here |
 | `.trivyignore` | Document accepted CVEs here with justification |
