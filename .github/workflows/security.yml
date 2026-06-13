@@ -6,10 +6,6 @@ on:
     branches: [main]
   workflow_dispatch:
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
-
 jobs:
   security-checks:
     uses: sibuthomasmathew/platform-github-workflows/.github/workflows/security-baseline.yml@main
